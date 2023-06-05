@@ -15,16 +15,17 @@ async function getData(id) {
   return res.json()
 }
 
-export async function generateMetadata({ params }) {
-  const post = await getData(params.id)
-  return {
-    title: post.title,
-    description: post.desc,
-  }
-}
+// export async function generateMetadata({ params }) {
+//   const post = await getData(params.id)
+//   return {
+//     title: post.title,
+//     description: post.desc,
+//   }
+// }
 
 const BlogPost = async ({ params }) => {
   const data = await getData(params.id)
+  console.log('dt:', data)
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -52,5 +53,4 @@ const BlogPost = async ({ params }) => {
     </div>
   )
 }
-
 export default BlogPost
